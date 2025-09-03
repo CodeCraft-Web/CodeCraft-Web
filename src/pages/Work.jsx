@@ -1,62 +1,14 @@
-const Work = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      category: "Web Development",
-      description: "A modern e-commerce platform built with React and Node.js, featuring real-time inventory management and payment processing.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
-      link: "#"
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      category: "Mobile Development",
-      description: "A cross-platform mobile app for project management with real-time collaboration features and offline synchronization.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
-      link: "#"
-    },
-    {
-      id: 3,
-      title: "Healthcare Dashboard",
-      category: "Web Development",
-      description: "A comprehensive healthcare management system with patient records, appointment scheduling, and analytics dashboard.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["Vue.js", "Python", "PostgreSQL", "Docker", "Charts.js"],
-      link: "#"
-    },
-    {
-      id: 4,
-      title: "Social Media Analytics",
-      category: "Data Analytics",
-      description: "Advanced analytics platform for social media performance tracking with AI-powered insights and predictive analytics.",
-      image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["Angular", "Python", "TensorFlow", "D3.js", "Redis"],
-      link: "#"
-    },
-    {
-      id: 5,
-      title: "Learning Management System",
-      category: "Web Development",
-      description: "Educational platform with video streaming, progress tracking, interactive quizzes, and certification management.",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["Next.js", "Prisma", "PostgreSQL", "Cloudinary", "Stripe"],
-      link: "#"
-    },
-    {
-      id: 6,
-      title: "Real Estate Platform",
-      category: "Web Development",
-      description: "Property listing and management platform with virtual tours, mortgage calculator, and advanced search filters.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Express.js", "MySQL", "Google Maps API", "AWS S3"],
-      link: "#"
-    }
-  ];
+import { useState } from 'react';
+import { projectsData, projectCategories, getProjectsByCategory } from '../data/projectsData.js';
 
-  const categories = ["All", "Web Development", "Mobile Development", "Data Analytics"];
+const Work = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [filteredProjects, setFilteredProjects] = useState(projectsData);
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    setFilteredProjects(getProjectsByCategory(category));
+  };
 
   return (
     <div className="pt-16">
@@ -75,10 +27,15 @@ const Work = () => {
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
+            {projectCategories.map((category) => (
               <button
                 key={category}
-                className="px-6 py-2 rounded-full bg-white text-gray-700 font-medium hover:bg-blue-600 hover:text-white transition-colors duration-200 shadow-sm"
+                onClick={() => handleCategoryChange(category)}
+                className={`px-6 py-2 rounded-full font-medium transition-colors duration-200 shadow-sm ${
+                  selectedCategory === category
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-white text-gray-700 hover:bg-blue-600 hover:text-white'
+                }`}
               >
                 {category}
               </button>
@@ -91,7 +48,7 @@ const Work = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {filteredProjects.map((project) => (
               <div
                 key={project.id}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"

@@ -1,4 +1,13 @@
+import { getAllTools } from '../data/toolsAndTechnologies.js';
+import { useState } from 'react';
+
 const Process = () => {
+  const [showAllTools, setShowAllTools] = useState(false);
+  const allTools = getAllTools();
+  const toolsPerRow = 6; // lg:grid-cols-6
+  const visibleRows = 3;
+  const visibleToolsCount = toolsPerRow * visibleRows; // 18 tools in 3 rows
+  const displayedTools = showAllTools ? allTools : allTools.slice(0, visibleToolsCount);
   const processSteps = [
     {
       step: "01",
@@ -210,17 +219,47 @@ const Process = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {[
-              "React", "Vue.js", "Angular", "Node.js", "Python", "TypeScript",
-              "Docker", "AWS", "MongoDB", "PostgreSQL", "Redis", "Kubernetes",
-              "Git", "Figma", "Jira", "Slack", "VS Code", "Postman"
-            ].map((tool, index) => (
+            {displayedTools.map((tool, index) => (
               <div key={index} className="bg-white p-4 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-200">
-                <div className="text-2xl mb-2">⚡</div>
-                <span className="text-sm font-medium text-gray-700">{tool}</span>
+                <img 
+                  src={tool.icon} 
+                  alt={tool.name}
+                  className="w-8 h-8 mx-auto mb-2"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'block';
+                  }}
+                />
+                <div className="text-2xl mb-2 hidden">⚡</div>
+                <span className="text-sm font-medium text-gray-700">{tool.name}</span>
               </div>
             ))}
           </div>
+          
+          {allTools.length > visibleToolsCount && (
+            <div className="text-center mt-8">
+              <button
+                onClick={() => setShowAllTools(!showAllTools)}
+                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 inline-flex items-center gap-2"
+              >
+                {showAllTools ? (
+                  <>
+                    Show Less
+                    <svg className="w-4 h-4 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    See More Technologies ({allTools.length - visibleToolsCount} more)
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
