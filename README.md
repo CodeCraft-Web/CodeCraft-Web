@@ -1,12 +1,82 @@
-# React + Vite
+# CodeCraft-Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Crafting Digital Experiences for Developers
 
-Currently, two official plugins are available:
+## Overview
+CodeCraft-Web is a modern web application designed to showcase a digital agency's services, team, and portfolio. Built with React, Vite, and TailwindCSS, it delivers a fast, responsive, and visually appealing user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Landing Page:** Engaging hero section and call-to-action.
+- **Services:** Detailed list of web, mobile, UI/UX, cloud, DevOps, and support services.
+- **Work:** Portfolio of completed projects across web, mobile, analytics, and more.
+- **Process:** Transparent workflow from discovery to launch and support.
+- **About:** Meet the founders and learn about the team's values and skills.
+- **Contact:** Interactive form and contact details for inquiries.
+- **Navigation:** Responsive navbar and footer.
+- **Scroll to Top:** Smooth navigation experience.
 
-## Expanding the ESLint configuration
+## Tech Stack
+- **Frontend:** React 19, React Router DOM
+- **Styling:** TailwindCSS
+- **Build Tool:** Vite
+- **Linting:** ESLint
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn
+
+### Installation
+```powershell
+# Clone the repository
+git clone https://github.com/Harsha-Buddhika-Official/CodeCraft-Web.git
+cd CodeCraft-Web
+
+# Install dependencies
+npm install
+```
+
+### Development
+```powershell
+npm run dev
+```
+The app will be available at `http://localhost:5173` by default.
+
+### Build
+```powershell
+npm run build
+```
+
+### Preview Production Build
+```powershell
+npm run preview
+```
+
+### Lint
+```powershell
+npm run lint
+```
+
+## Folder Structure
+```
+public/           # Static assets
+src/
+  assets/         # Images and logos
+  components/     # Reusable UI components
+  pages/          # Main pages (Home, Services, Work, About, Contact, etc.)
+  App.jsx         # Main app component
+  main.jsx        # Entry point
+```
+
+## Team
+- **Harsha Buddhika** – Founder, Developer, UI/UX Designer
+- **Chamith Dilshan** – Founder & Developer
+- **Mithun Weerasinghe** – Founder & Developer
+
+## Contact
+- Email: [hello@codecraft.dev](mailto:hello@codecraft.dev)
+- Phone: +1 (234) 567-890
+
+## License
+This project is licensed under the MIT License.
