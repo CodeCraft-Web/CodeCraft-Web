@@ -9,21 +9,21 @@ const About = () => {
       name: "Harsha Buddhika",
       role: "Founder, Developer, UI/UX Designer",
       image: harshaImg,
-    bio: "Visionary founder with expertise in full-stack development and user experience design. Leads CodeCraft's strategic direction while crafting beautiful, functional digital solutions. Undergraduate in BSc Computer Science at Eastern University, Sri Lanka.",
+      bio: "Visionary founder with expertise in full-stack development and user experience design. Leads CodeCraft's strategic direction while crafting beautiful, functional digital solutions. Undergraduate in BSc Computer Science at Eastern University, Sri Lanka.",
       skills: ["Leadership", "Full-Stack Development", "UI/UX Design", "Strategy", "Project Management"]
     },
     {
       name: "Chamith Dilshan",
       role: "Founder & Developer",
       image: chamithImg,
-    bio: "Co-founder and expert developer specializing in React, Node.js, and cloud technologies. Graduated in Computer Science from School of Computing, University of Colombo, Sri Lanka.",
+      bio: "Co-founder and expert developer specializing in React, Node.js, and cloud technologies. Graduated in Computer Science from School of Computing, University of Colombo, Sri Lanka.",
       skills: ["React", "Node.js", "AWS", "JavaScript", "Backend Development"]
     },
     {
       name: "Mithun Weerasinghe",
       role: "Founder & Developer",
       image: mithunImg,
-    bio: "Co-founder and skilled developer with strong design sensibilities. Undergraduate in Software Engineering at SLIIT, Sri Lanka. Bridges the gap between development and design to create exceptional user experiences.",
+      bio: "Co-founder and skilled developer with strong design sensibilities. Undergraduate in Software Engineering at SLIIT, Sri Lanka. Bridges the gap between development and design to create exceptional user experiences.",
       skills: ["Frontend Development", "UI/UX Design", "Figma", "JavaScript", "Design Systems"]
     }
   ];
